@@ -1,6 +1,9 @@
 package com.madroid.rest.webservices.restfulwebservices.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -12,8 +15,11 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "user_details")
 public class User {
 
+    @Id
+    @GeneratedValue
     private Integer id;
 
     @Size(min = 3, message = "Name should have at least 2 characters")
